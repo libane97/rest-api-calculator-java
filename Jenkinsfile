@@ -17,11 +17,13 @@ pipeline {
                     ) 
             }
         }
+        /*
           stage('Compilation'){
             steps{
                 bat 'mvnw compile'
             }
         }
+*/
         stage('Test Unitaire'){
             steps{
                 bat 'mvnw test'
