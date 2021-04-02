@@ -25,8 +25,11 @@ pipeline {
         }
 */
         stage('Test Unitaire'){
+            
             steps{
-                bat 'mvnw test'
+                 script{
+                bat('/mvnw clean test/')
+                   }
             }
         }
         
