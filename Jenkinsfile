@@ -3,12 +3,12 @@ pipeline {
 
     stages {
         
-        /*    stage('Clean'){
+      stage('Clean'){
             steps{
                 cleanWs()
             }
         }
-        */
+        
         stage('Source') {
             steps{
                 git(
@@ -17,28 +17,36 @@ pipeline {
                     ) 
             }
         }
-        /*
-          stage('Compilation'){
-            steps{
-                bat 'mvnw compile'
-            }
-        }
-*/
+
         stage('Test Unitaire'){
             
             steps{
                  script{
-                bat('/mvnw clean test/')
+                bat('mvnw clean test')
                    }
             }
         }
-        /*
-        stage('Test Sonar'){
+        
+        stage('Test Integration'){
             steps{
                 bat 'mvnw sonar:sonar'
             }
         }
-        */
+        
+    
+          stage('Test Compilation'){
+            steps{
+                bat 'mvnw compile'
+            }
+        }
+        
+    
+          stage('Test deploiment'){
+            steps{
+                bat 'mvnw deploy'
+            }
+        }
+        
     }
     
 
