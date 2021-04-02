@@ -3,11 +3,11 @@ pipeline {
 
     stages {
         
-      stage('Clean'){
+       stage('Clean'){
             steps{
                 cleanWs()
             }
-        }
+        } 
         
         stage('Source') {
             steps{
@@ -17,7 +17,7 @@ pipeline {
                     ) 
             }
         }
-
+ 
         stage('Test Unitaire'){
             
             steps{
@@ -25,14 +25,14 @@ pipeline {
                 bat('mvnw clean test')
                    }
             }
-        }
-        
+        } 
         stage('Test Integration'){
             steps{
                 bat 'mvnw sonar:sonar'
             }
         }
         
+     
     
           stage('Test Compilation'){
             steps{
