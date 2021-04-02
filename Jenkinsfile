@@ -3,12 +3,12 @@ pipeline {
 
     stages {
         
-        stage('Clean'){
+        /*    stage('Clean'){
             steps{
                 cleanWs()
             }
         }
-        
+        */
         stage('Source') {
             steps{
                 git(
@@ -32,13 +32,13 @@ pipeline {
                    }
             }
         }
-        
+        /*
         stage('Test Sonar'){
             steps{
                 bat 'mvnw sonar:sonar'
             }
         }
-        
+        */
     }
     
 
